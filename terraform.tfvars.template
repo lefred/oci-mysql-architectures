@@ -1,0 +1,16 @@
+# Oracle Cloud Infrastructure Authentication
+tenancy_ocid = "<YOUR TENANCY OCID>"
+user_ocid = "<YOUR USER OCID>"
+fingerprint= "<YOUR KEY FINGERPRINT>"
+private_key_path = "<YOUR PRIVATE KEY PATH>"
+
+# Regions
+region_source = "us-ashburn-1"
+region_replica = "eu-frankfurt-1"
+
+# Compartment
+compartment_ocid = "<YOUR COMPARTMENT OCID>"
+
+ssh_authorized_keys_path = "<PATH OF YOUR SSH PUB KEY>"
+ssh_private_key_path = "<PATH OF YOUR SSH PRIV KEY>"
+

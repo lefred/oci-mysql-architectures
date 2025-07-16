@@ -8,8 +8,8 @@ variable "region_instance_map" {
   type = map(number)
   description = "Map of region to number of compute instances"
   default = {
-    source = 0,
-    replica = 0
+    source = 3,
+    replica = 4
   }
 }
 
@@ -17,8 +17,8 @@ variable "region_router_map" {
   type = map(number)
   description = "Map of region to number of compute router instances"
   default = {
-    source = 0,
-    replica = 0
+    source = 2,
+    replica = 1
   }
 }
 
@@ -234,7 +234,7 @@ variable "puppet_flex_shape_memory" {
 
 variable "puppet_flex_shape_ocpus" {
   description = "Flex Instance shape OCPUs for Puppet Server"
-  default = 4
+  default = 2
 }
 
 variable "puppet_shape" {

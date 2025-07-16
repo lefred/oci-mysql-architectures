@@ -17,7 +17,7 @@ resource "oci_core_subnet" "public2" {
   compartment_id = var.compartment_ocid
   vcn_id = local.vcn_id_replica
   route_table_id = local.public_route_table_id_replica
-//  security_list_ids = [local.public_security_list_id_replica]
+  security_list_ids = [local.public_security_list_id_replica]
   dns_label = "mysqlpub2"
   provider = oci.replica
 

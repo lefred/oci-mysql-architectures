@@ -242,7 +242,7 @@ resource "oci_core_security_list" "private_security_list1" {
       min = 6446
     }
     protocol = "6"
-    source = "10.0.0.0/8" 
+    source = "10.0.0.0/8"
   }
 
   ingress_security_rules  {
@@ -321,7 +321,7 @@ module "puppetserver" {
   flex_shape_memory   = var.puppet_flex_shape_memory
   subnet_id           = local.public_subnet_id_source
   ssh_authorized_keys = local.ssh_key
-  ssh_private_key     = var.ssh_private_key_path == "" ? tls_private_key.public_private_key_pair.private_key_pem : file(var.ssh_private_key_path)
+  ssh_private_key     = local.ssh_private_key
   count               = abs(var.puppet_server_count) > 0 ? 1 : 0
 
   depends_on = [ oci_dns_resolver.mysqlvcn1 ]

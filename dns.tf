@@ -42,14 +42,6 @@ resource "oci_dns_resolver" "mysqlvcn1" {
 
  provider = oci.source
 
- rules {
-    action = "FORWARD"
-    destination_addresses = [ var.vcn_replica_dns_listener.ip ]
-    source_endpoint_name = var.vcn_source_dns_forwarder.name
-    qname_cover_conditions = [
-      "mysqlvcn2.oraclevcn.com"
-    ]
-  }
 }
 
 resource "oci_dns_resolver_endpoint" "mysqlvcn1_forwarder" {
@@ -133,15 +125,6 @@ resource "oci_dns_resolver" "mysqlvcn2" {
  ]
  resolver_id = data.oci_core_vcn_dns_resolver_association.mysqlvcn2.dns_resolver_id
  scope =  "PRIVATE"
-
- rules {
-    action = "FORWARD"
-    destination_addresses = [ var.vcn_source_dns_listener.ip ]
-    source_endpoint_name = var.vcn_replica_dns_forwarder.name
-    qname_cover_conditions = [
-      "mysqlvcn1.oraclevcn.com"
-    ]
-  }
 
  provider = oci.replica
 }
